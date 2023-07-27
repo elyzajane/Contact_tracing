@@ -61,6 +61,33 @@ class ContactTracingApp(tk.Tk):
         self.interaction_email_entry = self.create_entry(self.contact_form_frame, "Who has been in your house with you since your contact tracing date?:", 9, 0)
         
         self.corona_var = tk.StringVar()
+        
+        self.submit_button = tk.Button(self, text="Submit", command=self.submit_form, bg="#4CAF50", fg="white", font=("Helvetica", 12, "bold"), padx=20, pady=10)
+        self.submit_button.pack(pady=10)
+
+        self.show_main_window()
+
+    def create_label(self, parent, label_text, row, column):
+        label = tk.Label(parent, text=label_text, bg="#f0f0f0", fg="#333333", font=("Helvetica", 12), anchor="w")
+        label.grid(row=row, column=column, sticky="w")
+
+    def show_main_window(self):
+        self.message_frame.pack()
+        self.proceed_button.pack()
+
+        self.contact_form_frame.pack_forget()
+        self.submit_button.pack_forget()
+
+    def show_contact_form(self):
+
+        if self.agree_var.get():
+            self.message_frame.pack_forget()
+            self.proceed_button.pack_forget()
+            self.contact_form_frame.pack()
+            self.submit_button.pack()
+
+        else:
+            messagebox.showwarning("Agreement Required", "Please agree to the terms and conditions before proceeding.")
 
     def create_entry(self, parent, label_text, row, column):
         label = tk.Label(parent, text=label_text, bg="#f0f0f0", fg="#333333", font=("Helvetica", 12), anchor="w")
@@ -68,10 +95,6 @@ class ContactTracingApp(tk.Tk):
         entry = tk.Entry(parent, bg="white", fg="#333333", font=("Helvetica", 12))
         entry.grid(row=row, column=column+1, pady=5, sticky="w")
         return entry
-    
-    def create_label(self, parent, label_text, row, column):
-        label = tk.Label(parent, text=label_text, bg="#f0f0f0", fg="#333333", font=("Helvetica", 12), anchor="w")
-        label.grid(row=row, column=column, sticky="w")
 
     def submit_form(self):
         name = self.name_entry.get()
@@ -85,11 +108,6 @@ class ContactTracingApp(tk.Tk):
         emergency_email = self.emergency_email_entry.get()
         corona_choice = self.corona_var.get()
         housemates = self.interaction_email_entry.get()
-
-        self.submit_button = tk.Button(self, text="Submit", command=self.submit_form, bg="#4CAF50", fg="white", font=("Helvetica", 12, "bold"), padx=20, pady=10)
-        self.submit_button.pack(pady=10)
-
-        self.show_main_window()
 
         if not name or not age or not sex or not email or not phone or not address or not emergency_name or not emergency_phone or not emergency_email or not housemates:
             messagebox.showwarning("Incomplete Form", "Please fill in all the required fields.")
@@ -107,24 +125,6 @@ class ContactTracingApp(tk.Tk):
         else:
             messagebox.showinfo("Confirmation", "Your information has been saved.")
         
-        self.submit_button = tk.Button(self, text="Submit", command=self.submit_form, bg="#4CAF50", fg="white", font=("Helvetica", 12, "bold"), padx=20, pady=10)
-        self.submit_button.pack(pady=10)
-
-        self.show_main_window()
-
-    def show_main_window(self):
-        self.message_frame.pack()
-        self.proceed_button.pack()
-
-    def show_contact_form(self):
-        if self.agree_var.get():
-            self.message_frame.pack_forget()
-            self.proceed_button.pack_forget()
-            self.contact_form_frame.pack()
-            self.submit_button.pack()
-
-        else:
-            messagebox.showwarning("Agreement Required", "Please agree to the terms and conditions before proceeding.")
 
 if __name__ == "__main__":
     app = ContactTracingApp()
