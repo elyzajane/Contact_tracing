@@ -36,3 +36,5 @@ class ContactTracingApp(tk.Tk):
 
         self.proceed_button = tk.Button(self, text="Proceed", command=self.show_contact_form, bg="#4CAF50", fg="white", font=("Helvetica", 12, "bold"), padx=20, pady=10)
         self.proceed_button.pack(pady=20)
+
+        self.contact_form_frame = tk.Frame(self, bg="#f0f0f0")
