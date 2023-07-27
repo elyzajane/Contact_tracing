@@ -72,3 +72,23 @@ class ContactTracingApp(tk.Tk):
     def create_label(self, parent, label_text, row, column):
         label = tk.Label(parent, text=label_text, bg="#f0f0f0", fg="#333333", font=("Helvetica", 12), anchor="w")
         label.grid(row=row, column=column, sticky="w")
+
+    def submit_form(self):
+        name = self.name_entry.get()
+        age = self.age_entry.get()
+        sex = self.sex_var.get()
+        email = self.email_entry.get()
+        phone = self.phone_entry.get()
+        address = self.address_entry.get()
+        emergency_name = self.emergency_name_entry.get()
+        emergency_phone = self.emergency_phone_entry.get()
+        emergency_email = self.emergency_email_entry.get()
+        corona_choice = self.corona_var.get()
+        housemates = self.interaction_email_entry.get()
+
+    def show_main_window(self):
+        self.proceed_button.pack()
+        self.submit_button = tk.Button(self, text="Submit", command=self.submit_form, bg="#4CAF50", fg="white", font=("Helvetica", 12, "bold"), padx=20, pady=10)
+        self.submit_button.pack(pady=10)
+
+        self.show_main_window()
