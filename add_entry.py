@@ -38,3 +38,6 @@ class ContactTracingApp(tk.Tk):
         self.proceed_button.pack(pady=20)
 
         self.contact_form_frame = tk.Frame(self, bg="#f0f0f0")
+
+        self.name_entry = self.create_entry(self.contact_form_frame, "Name:", 0, 0)
+        self.age_entry = self.create_entry(self.contact_form_frame, "Age:", 1, 0)
