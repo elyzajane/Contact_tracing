@@ -129,7 +129,12 @@ class AddEntry(tk.Tk):
 
         else:
             messagebox.showinfo("Confirmation", "Your information has been saved.")
-        
+            
+        data = [name, age,sex, email, phone, address, emergency_name, emergency_phone, emergency_email, housemates, places ]
+        file = open("Informations.csv", mode="a", newline="")
+        response = csv.writer(file)
+        response.writerow(data)
+        file.close()
 
 if __name__ == "__main__":
     app = AddEntry()

@@ -25,7 +25,8 @@ class SearchEntry(tk.Tk):
     def search_info(self):
         name_to_search = self.search_entry.get()
 
-        with open("gathered_information.csv", mode="r") as file:
+
+        with open("Informations.csv", mode="r") as file:
             reader = csv.reader(file)
             found_entries = []
             for row in reader:
@@ -41,9 +42,9 @@ class SearchEntry(tk.Tk):
             self.age_entry.place(x=250, y=130)
             self.sex_var = tk.StringVar(value=f"Sex: {found_entries[0][2]}")
             self.sex_entry = tk.Label(self, textvariable=self.sex_var, font=("Helvetica", 11))
-            self.sex_entry.place(x=340, y=130)
+            self.sex_entry.place(x=300, y=130)
             self.email_entry = tk.Label(self, text=f"Email Address:: {found_entries[0][3]}", font=("Helvetica", 11))
-            self.email_entry.place(x=440, y=130)
+            self.email_entry.place(x=250, y=130)
             self.phone_entry = tk.Label(self, text=f"Phone Number: {found_entries[0][4]}", font=("Helvetica", 11))
             self.phone_entry.place(x=30, y=160)
             self.address_entry = tk.Label(self, text=f"Address: {found_entries[0][5]}", font=("Helvetica", 11))
@@ -51,13 +52,13 @@ class SearchEntry(tk.Tk):
             self.emergency_name_entry = tk.Label(self, text=f"Emergency Contact Name: {found_entries[0][6]}", font=("Helvetica", 11))
             self.emergency_name_entry.place(x=30, y=250)
             self.emergency_phone_entry = tk.Label(self, text=f"Emergency Contact Phone: {found_entries[0][7]}", font=("Helvetica", 11))
-            self.emergency_phone_entry.place(x=30, y=280)
+            self.emergency_phone_entry.place(x=290, y=280)
             self.emergency_email_entry = tk.Label(self, text=f"Emergency Contact Email: {found_entries[0][8]}", font=("Helvetica", 11))
             self.emergency_email_entry.place(x=290, y=220)
             self.interaction_entry= tk.Label(self, text=f"Who has been in your house with you since your contact tracing date?(Create a list): {found_entries[0][9]}", font=("Helvetica", 11))
-            self.interaction_entry.place(x=290, y=250)
+            self.interaction_entry.place(x=30, y=250)
             self.places_entry= tk.Label(self, text=f"Specify the places you've visited for the past 14 days?: {found_entries[0][10]}", font=("Helvetica", 11))
-            self.places_entry.place(x=290, y=250)
+            self.places_entry.place(x=30, y=280)
         else:
             result_label = tk.Label(self, text="No entries found", font=("Helvetica", 11, "bold"))
             result_label.place(x=290, y=80)     
