@@ -51,3 +51,13 @@ class ContactTracingApp(tk.Tk):
 
         male_checkbutton = tk.Radiobutton(self.contact_form_frame, text="Male", variable=self.sex_var, value="Male", bg="#f0f0f0", fg="#333333", font=("Helvetica", 12))
         male_checkbutton.grid(row=2, column=2, sticky="w")
+
+        self.email_entry = self.create_entry(self.contact_form_frame, "Email Address:", 3, 0)
+        self.phone_entry = self.create_entry(self.contact_form_frame, "Phone Number:", 4, 0)
+        self.address_entry = self.create_entry(self.contact_form_frame, "Address:", 5, 0)
+        self.emergency_name_entry = self.create_entry(self.contact_form_frame, "Emergency Contact Name:", 6, 0)
+        self.emergency_phone_entry = self.create_entry(self.contact_form_frame, "Emergency Contact Phone:", 7, 0)
+        self.emergency_email_entry = self.create_entry(self.contact_form_frame, "Emergency Contact Email:", 8, 0)
+        self.interaction_email_entry = self.create_entry(self.contact_form_frame, "Who has been in your house with you since your contact tracing date?:", 9, 0)
+        
+        self.corona_var = tk.StringVar()
