@@ -17,3 +17,10 @@ class ContactTracingApp(tk.Tk):
 
         paragraph1_label = tk.Label(self.message_frame, text=main_message_text, font=("Helvetica", 12), justify="left", wraplength=550, bg="#f0f0f0", fg="#333333", anchor="w")
         paragraph1_label.pack(pady=5)
+
+        terms_title_label = tk.Label(self.message_frame, text="Terms and Conditions:", font=("Helvetica", 14, "bold"), bg="#f0f0f0", fg="#4CAF50", anchor="w")
+        terms_title_label.pack(pady=5)
+
+        contact_list_text = "Lagay ka terms and conditionss"
+        paragraph2_label = tk.Label(self.message_frame, text=contact_list_text, font=("Helvetica", 12), justify="left", wraplength=550, bg="#f0f0f0", fg="#333333", anchor="w")
+        paragraph2_label.pack(pady=5)
