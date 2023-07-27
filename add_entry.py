@@ -100,3 +100,12 @@ class ContactTracingApp(tk.Tk):
         self.message_frame.pack()
         self.proceed_button.pack()
 
+    def show_contact_form(self):
+        if self.agree_var.get():
+            self.message_frame.pack_forget()
+            self.proceed_button.pack_forget()
+            self.contact_form_frame.pack()
+            self.submit_button.pack()
+
+        else:
+            messagebox.showwarning("Agreement Required", "Please agree to the terms and conditions before proceeding.")
