@@ -24,3 +24,10 @@ class SearchEntry(tk.Tk):
 
     def search_info(self):
         name_to_search = self.search_entry.get()
+
+        with open("gathered_information.csv", mode="r") as file:
+            reader = csv.reader(file)
+            found_entries = []
+            for row in reader:
+                if row[0] == name_to_search:
+                    found_entries.append(row)        
