@@ -68,3 +68,7 @@ class ContactTracingApp(tk.Tk):
         entry = tk.Entry(parent, bg="white", fg="#333333", font=("Helvetica", 12))
         entry.grid(row=row, column=column+1, pady=5, sticky="w")
         return entry
+    
+    def create_label(self, parent, label_text, row, column):
+        label = tk.Label(parent, text=label_text, bg="#f0f0f0", fg="#333333", font=("Helvetica", 12), anchor="w")
+        label.grid(row=row, column=column, sticky="w")
