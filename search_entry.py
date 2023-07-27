@@ -8,7 +8,7 @@ class SearchEntry(tk.Tk):
         super().__init__()
 
         self.title("Search Entry")
-        self.geometry("900x800")
+        self.geometry("800x500")
 
         search = tk.Label(self, text="Enter the Name:")
         search.place(x=30, y=30)
