@@ -41,3 +41,13 @@ class ContactTracingApp(tk.Tk):
 
         self.name_entry = self.create_entry(self.contact_form_frame, "Name:", 0, 0)
         self.age_entry = self.create_entry(self.contact_form_frame, "Age:", 1, 0)
+
+        self.sex_var = tk.StringVar()
+        self.sex_var.set("Female")  # Set the default value
+        self.create_label(self.contact_form_frame, "Sex:", 2, 0)
+
+        female_checkbutton = tk.Radiobutton(self.contact_form_frame, text="Female", variable=self.sex_var, value="Female", bg="#f0f0f0", fg="#333333", font=("Helvetica", 12))
+        female_checkbutton.grid(row=2, column=1, sticky="w")
+
+        male_checkbutton = tk.Radiobutton(self.contact_form_frame, text="Male", variable=self.sex_var, value="Male", bg="#f0f0f0", fg="#333333", font=("Helvetica", 12))
+        male_checkbutton.grid(row=2, column=2, sticky="w")
