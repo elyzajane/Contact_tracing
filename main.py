@@ -32,3 +32,7 @@ class Main(tk.Tk):
 
     def close_window(self):
         self.destroy()
+
+if __name__ == "__main__":
+    app = Main()
+    app.mainloop()
