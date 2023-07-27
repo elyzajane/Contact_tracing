@@ -1,7 +1,8 @@
 import tkinter as tk
 from tkinter import messagebox
+import csv
 
-class ContactTracingApp(tk.Tk):
+class AddEntry(tk.Tk):
     def __init__(self):
         super().__init__()
         self.title("Covid-19 Contact Tracing Form")
@@ -23,7 +24,7 @@ class ContactTracingApp(tk.Tk):
         terms_title_label = tk.Label(self.message_frame, text="Terms and Conditions:", font=("Helvetica", 14, "bold"), bg="#f0f0f0", fg="#4CAF50", anchor="w")
         terms_title_label.pack(pady=5)
 
-        contact_list_text = "Lagay ka terms and conditionss"
+        contact_list_text = "I hereby authorize this Contact Tracing Form, to collect and process the data indicated herein for the purpose of contact tracing effecting control of the COVID-19 transmission. I understand that my personal information is protected by RA 10173 or the Data Privacy Act of 2012, following the National Archives of the Philippines protocol."
         paragraph2_label = tk.Label(self.message_frame, text=contact_list_text, font=("Helvetica", 12), justify="left", wraplength=550, bg="#f0f0f0", fg="#333333", anchor="w")
         paragraph2_label.pack(pady=5)
 
@@ -58,10 +59,11 @@ class ContactTracingApp(tk.Tk):
         self.emergency_name_entry = self.create_entry(self.contact_form_frame, "Emergency Contact Name:", 6, 0)
         self.emergency_phone_entry = self.create_entry(self.contact_form_frame, "Emergency Contact Phone:", 7, 0)
         self.emergency_email_entry = self.create_entry(self.contact_form_frame, "Emergency Contact Email:", 8, 0)
-        self.interaction_email_entry = self.create_entry(self.contact_form_frame, "Who has been in your house with you since your contact tracing date?:", 9, 0)
+        self.interaction_entry = self.create_entry(self.contact_form_frame, "Who has been in your house with you since your contact tracing date?(Create a list):", 9, 0)
+        self.places_entry = self.create_entry(self.contact_form_frame, "Specify the places you've visited for the past 14 days?:", 10, 0)     
         
         self.corona_var = tk.StringVar()
-        
+
         self.submit_button = tk.Button(self, text="Submit", command=self.submit_form, bg="#4CAF50", fg="white", font=("Helvetica", 12, "bold"), padx=20, pady=10)
         self.submit_button.pack(pady=10)
 
@@ -72,14 +74,16 @@ class ContactTracingApp(tk.Tk):
         label.grid(row=row, column=column, sticky="w")
 
     def show_main_window(self):
+
         self.message_frame.pack()
         self.proceed_button.pack()
 
         self.contact_form_frame.pack_forget()
         self.submit_button.pack_forget()
 
-    def show_contact_form(self):
 
+    def show_contact_form(self):
+        # Show the contact form frame and the Submit button
         if self.agree_var.get():
             self.message_frame.pack_forget()
             self.proceed_button.pack_forget()
@@ -93,7 +97,7 @@ class ContactTracingApp(tk.Tk):
         label = tk.Label(parent, text=label_text, bg="#f0f0f0", fg="#333333", font=("Helvetica", 12), anchor="w")
         label.grid(row=row, column=column, sticky="w")
         entry = tk.Entry(parent, bg="white", fg="#333333", font=("Helvetica", 12))
-        entry.grid(row=row, column=column+1, pady=5, sticky="w")
+        entry.grid(row=row, column=column+1, pady=5, sticky="w")  # Align the entry to the left (west)
         return entry
 
     def submit_form(self):
@@ -106,8 +110,9 @@ class ContactTracingApp(tk.Tk):
         emergency_name = self.emergency_name_entry.get()
         emergency_phone = self.emergency_phone_entry.get()
         emergency_email = self.emergency_email_entry.get()
-        corona_choice = self.corona_var.get()
-        housemates = self.interaction_email_entry.get()
+        housemates = self.interaction_entry.get()
+        places = self.places_entry.get()
+
 
         if not name or not age or not sex or not email or not phone or not address or not emergency_name or not emergency_phone or not emergency_email or not housemates:
             messagebox.showwarning("Incomplete Form", "Please fill in all the required fields.")
@@ -127,5 +132,5 @@ class ContactTracingApp(tk.Tk):
         
 
 if __name__ == "__main__":
-    app = ContactTracingApp()
+    app = AddEntry()
     app.mainloop()
