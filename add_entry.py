@@ -24,3 +24,10 @@ class ContactTracingApp(tk.Tk):
         contact_list_text = "Lagay ka terms and conditionss"
         paragraph2_label = tk.Label(self.message_frame, text=contact_list_text, font=("Helvetica", 12), justify="left", wraplength=550, bg="#f0f0f0", fg="#333333", anchor="w")
         paragraph2_label.pack(pady=5)
+
+        self.agree_var = tk.BooleanVar()
+        self.agree_var.set(False)
+        self.agree_checkbutton = tk.Checkbutton(self.message_frame, text="I agree to terms and conditions", variable=self.agree_var, font=("Helvetica", 12), bg="#f0f0f0", fg="#333333")
+        self.agree_checkbutton.pack(pady=5)
+
+        self.message_frame.pack(pady=10)
