@@ -43,7 +43,7 @@ class ContactTracingApp(tk.Tk):
         self.age_entry = self.create_entry(self.contact_form_frame, "Age:", 1, 0)
 
         self.sex_var = tk.StringVar()
-        self.sex_var.set("Female")  # Set the default value
+        self.sex_var.set("Female") 
         self.create_label(self.contact_form_frame, "Sex:", 2, 0)
 
         female_checkbutton = tk.Radiobutton(self.contact_form_frame, text="Female", variable=self.sex_var, value="Female", bg="#f0f0f0", fg="#333333", font=("Helvetica", 12))
@@ -61,3 +61,10 @@ class ContactTracingApp(tk.Tk):
         self.interaction_email_entry = self.create_entry(self.contact_form_frame, "Who has been in your house with you since your contact tracing date?:", 9, 0)
         
         self.corona_var = tk.StringVar()
+
+    def create_entry(self, parent, label_text, row, column):
+        label = tk.Label(parent, text=label_text, bg="#f0f0f0", fg="#333333", font=("Helvetica", 12), anchor="w")
+        label.grid(row=row, column=column, sticky="w")
+        entry = tk.Entry(parent, bg="white", fg="#333333", font=("Helvetica", 12))
+        entry.grid(row=row, column=column+1, pady=5, sticky="w")
+        return entry
