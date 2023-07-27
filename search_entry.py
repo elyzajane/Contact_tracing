@@ -61,3 +61,7 @@ class SearchEntry(tk.Tk):
         else:
             result_label = tk.Label(self, text="No entries found", font=("Helvetica", 11, "bold"))
             result_label.place(x=290, y=80)     
+
+if __name__ == "__main__":
+    search = SearchEntry()
+    search.mainloop()
