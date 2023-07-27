@@ -86,11 +86,22 @@ class ContactTracingApp(tk.Tk):
         corona_choice = self.corona_var.get()
         housemates = self.interaction_email_entry.get()
 
-
         if not name or not age or not sex or not email or not phone or not address or not emergency_name or not emergency_phone or not emergency_email or not housemates:
             messagebox.showwarning("Incomplete Form", "Please fill in all the required fields.")
             return
+        try:
+            age = int(age)
+        except ValueError:
+            messagebox.showwarning("Invalid Age", "Please enter a valid age.")
+            return
 
+        if age < 0 or age > 120:
+            messagebox.showwarning("Invalid Age", "Please enter a valid age between 0 and 120.")
+            return
+
+        else:
+            messagebox.showinfo("Confirmation", "Your information has been saved.")
+        
         self.submit_button = tk.Button(self, text="Submit", command=self.submit_form, bg="#4CAF50", fg="white", font=("Helvetica", 12, "bold"), padx=20, pady=10)
         self.submit_button.pack(pady=10)
 
@@ -109,3 +120,4 @@ class ContactTracingApp(tk.Tk):
 
         else:
             messagebox.showwarning("Agreement Required", "Please agree to the terms and conditions before proceeding.")
+
