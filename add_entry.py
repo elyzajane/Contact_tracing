@@ -15,3 +15,5 @@ class ContactTracingApp(tk.Tk):
         self.message_frame = tk.Frame(self, bg="#f0f0f0")
         main_message_text = "Trace any possible contact a person may have had with anyone who could be a carrier of the COVID-19 virus. The Contact Tracing survey will help track down people who are in danger of being exposed to the virus. This can lead to timely detection and treatment, as well as preventing it from spreading further. Use the Contact Tracing form within your organization, community, clients, and more to detect possible exposure to the virus."
 
+        paragraph1_label = tk.Label(self.message_frame, text=main_message_text, font=("Helvetica", 12), justify="left", wraplength=550, bg="#f0f0f0", fg="#333333", anchor="w")
+        paragraph1_label.pack(pady=5)
